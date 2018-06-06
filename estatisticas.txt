@@ -1,0 +1,175 @@
+[1] "=========================================================================="
+[1] "Análise descritiva"
+[1] "=========================================================================="
+        V1           V2                V3                   V4      
+ Feasible:79   Min.   :      0   Min.   :-1.400e-05   Min.   :1060  
+ Optimal : 1   1st Qu.: 101211   1st Qu.:-1.000e-06   1st Qu.:1199  
+               Median : 704716   Median :-8.334e-07   Median :1199  
+               Mean   :1396442   Mean   :-1.045e-06   Mean   :1195  
+               3rd Qu.:2256268   3rd Qu.: 0.000e+00   3rd Qu.:1200  
+               Max.   :7657330   Max.   : 0.000e+00   Max.   :1200  
+        V1           V2                V3                   V4         
+ Feasible:76   Min.   :      0   Min.   :-1.098e-05   Min.   :  12.52  
+ Optimal : 4   1st Qu.: 144354   1st Qu.:-1.000e-06   1st Qu.:1198.82  
+               Median : 627262   Median :-4.795e-09   Median :1199.20  
+               Mean   :1192292   Mean   :-7.059e-07   Mean   :1166.45  
+               3rd Qu.:1966558   3rd Qu.: 0.000e+00   3rd Qu.:1199.46  
+               Max.   :7286880   Max.   : 0.000e+00   Max.   :1199.72  
+        V1           V2                 V3                   V4      
+ Feasible:55   Min.   :   11032   Min.   :-5.168e-06   Min.   :1190  
+               1st Qu.:  154262   1st Qu.:-1.000e-06   1st Qu.:1200  
+               Median :  535950   Median :-3.962e-07   Median :1200  
+               Mean   : 1643378   Mean   :-7.489e-07   Mean   :1200  
+               3rd Qu.: 2713720   3rd Qu.: 0.000e+00   3rd Qu.:1201  
+               Max.   :13593400   Max.   : 0.000e+00   Max.   :1207  
+        V1           V2                V3                   V4         
+ Feasible:73   Min.   :      0   Min.   :-1.698e-05   Min.   :  41.45  
+ Optimal : 7   1st Qu.:  47248   1st Qu.:-2.000e-06   1st Qu.:1199.14  
+               Median : 209410   Median :-6.286e-08   Median :1199.59  
+               Mean   : 373629   Mean   :-1.458e-06   Mean   :1147.20  
+               3rd Qu.: 479654   3rd Qu.: 0.000e+00   3rd Qu.:1199.74  
+               Max.   :2789720   Max.   : 0.000e+00   Max.   :1199.94  
+[1] "=========================================================================="
+[1] "Teste ANOVA e suas premissas"
+[1] "=========================================================================="
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value  Pr(>F)    
+group   3  9.8756 3.2e-06 ***
+      291                    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Variance Table
+
+Response: Medida
+           Df     Sum Sq    Mean Sq F value    Pr(>F)    
+Modelo      3 6.6132e+13 2.2044e+13  9.4991 5.261e-06 ***
+Residuals 291 6.7531e+14 2.3206e+12                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	Shapiro-Wilk normality test
+
+data:  residuals(analise1)
+W = 0.78293, p-value < 2.2e-16
+
+[1] "=========================================================================="
+[1] "Testes não paramétricos: Kruskal Wallis e Welch's ANOVA"
+[1] "=========================================================================="
+
+	Kruskal-Wallis rank sum test
+
+data:  Medida by Modelo
+Kruskal-Wallis chi-squared = 28.641, df = 3, p-value = 2.664e-06
+
+
+	One-way analysis of means (not assuming equal variances)
+
+data:  Medida and Modelo
+F = 19.967, num df = 3.00, denom df = 128.42, p-value = 1.099e-10
+
+[1] "=========================================================================="
+[1] "Testes de multiplas comparações com todos os métodos de ajuste de p-valor"
+[1] "=========================================================================="
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2   
+M1 1e+00   -       -    
+M2 1e+00   1e+00   -    
+M3 5.5e-05 7.9e-05 2e-04
+
+P value adjustment method: holm 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2   
+M1 9e-01   -       -    
+M2 9e-01   9e-01   -    
+M3 5.5e-05 7.9e-05 2e-04
+
+P value adjustment method: hochberg 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2   
+M1 9e-01   -       -    
+M2 9e-01   9e-01   -    
+M3 4.8e-05 7.9e-05 2e-04
+
+P value adjustment method: hommel 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2   
+M1 1e+00   -       -    
+M2 1e+00   1e+00   -    
+M3 5.5e-05 9.5e-05 3e-04
+
+P value adjustment method: bonferroni 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2    
+M1 0.7411  -       -     
+M2 0.8984  0.7411  -     
+M3 4.8e-05 4.8e-05 0.0001
+
+P value adjustment method: BH 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2     
+M1 1.00000 -       -      
+M2 1.00000 1.00000 -      
+M3 0.00012 0.00012 0.00025
+
+P value adjustment method: BY 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2    
+M1 0.7411  -       -     
+M2 0.8984  0.7411  -     
+M3 4.8e-05 4.8e-05 0.0001
+
+P value adjustment method: fdr 
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  TabelaMedida$Medida and TabelaMedida$Modelo 
+
+   M0      M1      M2     
+M1 0.61    -       -      
+M2 0.90    0.62    -      
+M3 9.1e-06 1.6e-05 5.0e-05
+
+P value adjustment method: none 
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+    factor levels have been ordered
+
+Fit: aov(formula = Medida ~ Modelo, data = TabelaMedida)
+
+$Modelo
+           diff       lwr       upr     p adj
+M1-M3  818662.7  196282.1 1441043.3 0.0042700
+M0-M3 1022812.7  400432.1 1645193.3 0.0001710
+M2-M3 1269748.9  580261.1 1959236.7 0.0000182
+M0-M1  204150.0 -418230.6  826530.6 0.8316076
+M2-M1  451086.2 -238401.6 1140574.0 0.3305331
+M2-M0  246936.2 -442551.6  936424.0 0.7912595
+
