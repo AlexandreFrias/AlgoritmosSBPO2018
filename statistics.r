@@ -67,6 +67,8 @@ print('=========================================================================
 
 #Multiplas comparações "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
 #https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html
+#Este pairwise não é o pareado que necessita de réplicas correlacionadas entre 
+#os níveis. Este teste compara os possiveis pares de níveis.
 pairwise.wilcox.test(TabelaMedida$Medida,TabelaMedida$Modelo, p.adjust.method = "holm")
 pairwise.wilcox.test(TabelaMedida$Medida,TabelaMedida$Modelo, p.adjust.method = "hochberg")
 pairwise.wilcox.test(TabelaMedida$Medida,TabelaMedida$Modelo, p.adjust.method = "hommel")
